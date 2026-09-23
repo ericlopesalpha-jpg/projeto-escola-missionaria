@@ -1,658 +1,1154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>Escola Missionária</title>
 
 <style>
 :root{
-  --p:#352c86;
-  --p2:#655db3;
+  --purple:#352c86;
+  --purple2:#4939a7;
+  --blue:#1687ee;
+  --green:#12b981;
+  --orange:#ff8a17;
+  --red:#ef3d45;
+  --gold:#f4b51d;
+
   --bg:#f4f6fa;
-  --ink:#24243a;
+  --card:#ffffff;
+  --text:#151735;
   --muted:#74758a;
-  --gold:#e8ad25;
-  --ok:#18bda8;
+  --line:#e6e8ef;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  font-family:Inter,Arial,sans-serif;
   background:var(--bg);
-  color:var(--ink);
+  color:var(--text);
+  font-family:Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   CABEÇALHO
+========================= */
+
 header{
-  background:linear-gradient(135deg,var(--p),#44389b);
-  color:#fff;
-  padding:18px 18px 34px;
+  background:
+    linear-gradient(
+      120deg,
+      #352c86,
+      #3449c7
+    );
+  color:white;
+  padding:22px 30px;
 }
-.top{
-  max-width:1160px;
+
+.header-inner{
+  max-width:1180px;
   margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
-.brand{font-weight:800;letter-spacing:.4px}
-.avatar{
-  width:38px;height:38px;border-radius:50%;
-  background:#fff3;display:grid;place-items:center;
-}
-.wrap{
-  max-width:1160px;
-  margin:-18px auto 90px;
-  padding:0 16px;
-}
-.small{color:var(--muted);font-size:13px}
-.section{margin-top:24px}
-.section-title{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-bottom:12px;
-}
-.section-title h2{font-size:18px;margin:0}
-.link{color:var(--p);font-size:12px;font-weight:700}
 
-/* TOPO */
-
-.journey{
-  background:#fff;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 8px 25px #25206012;
-  margin-bottom:14px;
-}
-.student-head{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:20px;
-  align-items:center;
-}
-.student h1{
-  font-size:21px;
-  margin:4px 0 8px;
-}
-.course-label{
-  display:inline-block;
-  background:#eeecfb;
-  color:var(--p);
-  border-radius:20px;
-  padding:5px 9px;
-  font-size:10px;
-  font-weight:800;
-}
-.course-name{
-  color:var(--p);
-  font-size:17px;
-  font-weight:900;
-  margin-top:7px;
-}
-.deadline-top{
-  min-width:225px;
-  background:#fff8e7;
-  border:1px solid #f1dfaa;
-  border-radius:14px;
-  padding:13px 15px;
-}
-.deadline-label{
-  color:#8d742c;
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
-.deadline-days{
-  color:var(--p);
-  font-size:25px;
-  font-weight:900;
-  margin:4px 0;
-}
-.deadline-period{
-  color:var(--muted);
-  font-size:10px;
-  line-height:1.35;
-}
-
-/* MÓDULOS */
-
-.modules-scroll{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding:2px 2px 12px;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:none;
-}
-.modules-scroll::-webkit-scrollbar{display:none}
-.module-card{
-  min-width:265px;
-  width:265px;
-  background:#fff;
-  border:2px solid transparent;
-  border-radius:16px;
-  padding:15px;
-  box-shadow:0 3px 14px #2520600b;
-  cursor:pointer;
-  scroll-snap-align:start;
-  transition:.2s;
-}
-.module-card.active{
-  border-color:var(--p);
-  background:#f7f5ff;
-}
-.module-number{
-  font-size:10px;
-  font-weight:900;
-  color:var(--p);
-  margin-bottom:7px;
-}
-.module-name{
-  font-size:14px;
-  line-height:1.3;
-  font-weight:800;
-  min-height:55px;
-}
-.module-progress-line{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:13px;
-  font-size:11px;
-  color:var(--muted);
-}
-.module-progress-line strong{
-  color:var(--p);
-  font-size:15px;
-}
-.bar{
-  height:6px;
-  background:#e9e9ef;
-  border-radius:8px;
-  overflow:hidden;
-  margin-top:7px;
-}
-.bar i{
+.brand strong{
   display:block;
-  height:100%;
-  background:var(--ok);
-  width:0%;
-  transition:.3s;
+  font-size:25px;
+  letter-spacing:-.4px;
 }
 
-/* CONTINUAR */
+.brand span{
+  display:block;
+  margin-top:4px;
+  font-size:13px;
+  opacity:.95;
+}
 
-.continue{
-  background:linear-gradient(135deg,#3b318e,#6559b8);
-  color:#fff;
+.user{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:48px;
+  height:48px;
+
+  border-radius:50%;
+  background:white;
+  color:var(--purple);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:900;
+}
+
+.user-text strong{
+  display:block;
+  font-size:14px;
+}
+
+.user-text span{
+  font-size:11px;
+  opacity:.9;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.container{
+  width:min(1180px, calc(100% - 34px));
+  margin:20px auto 100px;
+}
+
+/* =========================
+   CURSO / PRAZO
+========================= */
+
+.course-summary{
+  background:white;
   border-radius:18px;
-  padding:18px;
-  box-shadow:0 5px 18px #352c8622;
+  padding:24px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  box-shadow:
+    0 8px 28px rgba(28,35,80,.06);
 }
-.continue-label{
-  font-size:10px;
-  font-weight:800;
-  opacity:.8;
+
+.course-side{
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  padding-right:28px;
 }
-.continue h2{
-  font-size:19px;
-  line-height:1.25;
-  margin:7px 0;
+
+.course-icon{
+  width:66px;
+  height:66px;
+  min-width:66px;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--purple),
+      #4758d6
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:30px;
 }
-.continue p{
-  opacity:.85;
+
+.label{
+  color:var(--purple);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.course-title{
+  margin:7px 0 5px;
+
+  color:var(--purple);
+  font-size:24px;
+  font-weight:900;
+}
+
+.verse{
   margin:0;
+  font-size:13px;
+  color:#42445c;
+}
+
+.verse-ref{
+  margin-top:6px;
+  color:#777b9b;
   font-size:12px;
 }
-.continue-info{
+
+.deadline-side{
+  border-left:1px solid #dfe1ea;
+
+  padding-left:35px;
+
   display:flex;
-  justify-content:space-between;
-  margin-top:14px;
+  align-items:center;
+  gap:17px;
+}
+
+.deadline-icon{
+  font-size:27px;
+}
+
+.deadline-title{
+  color:var(--purple);
   font-size:11px;
+  font-weight:900;
 }
-.continue-progress{
+
+.deadline-days{
+  color:var(--purple);
+  font-size:26px;
+  font-weight:900;
+  margin:6px 0 4px;
+}
+
+.deadline-date{
+  color:#74789a;
+  font-size:13px;
+}
+
+.deadline-bar{
+  width:260px;
+  max-width:100%;
   height:7px;
-  background:#ffffff35;
-  border-radius:9px;
+
+  margin-top:12px;
+
+  background:#e4e7ef;
+  border-radius:20px;
   overflow:hidden;
-  margin:8px 0 15px;
 }
-.continue-progress i{
+
+.deadline-bar span{
   display:block;
   height:100%;
-  background:#f6bd3b;
-  width:0%;
-}
-.primary{
-  border:0;
-  border-radius:10px;
-  padding:12px 16px;
-  font-weight:800;
-  cursor:pointer;
-  background:#fff;
-  color:var(--p);
+  width:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--purple),
+      #6d62df
+    );
+
+  border-radius:20px;
 }
 
-/* CALENDÁRIO */
+/* =========================
+   TÍTULOS
+========================= */
 
-.month-card{
-  background:#fff;
-  border-radius:18px;
-  padding:16px;
-  box-shadow:0 3px 14px #2520600b;
-}
-.month-head{
+.section-title{
+  margin:26px 3px 13px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:12px;
 }
-.month-head h3{
+
+.section-title h2{
   margin:0;
-  font-size:16px;
-  text-transform:capitalize;
+  font-size:25px;
 }
-.month-nav{
+
+.section-title span{
+  color:var(--purple);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* =========================
+   MÓDULOS
+========================= */
+
+.modules{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.module{
+  background:white;
+  border-radius:17px;
+
+  min-height:130px;
+  padding:18px 24px;
+
+  display:grid;
+  grid-template-columns:125px 1fr 240px 24px;
+  gap:18px;
+
+  align-items:center;
+
+  box-shadow:
+    0 5px 20px rgba(35,40,75,.045);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.module:hover{
+  transform:translateY(-1px);
+
+  box-shadow:
+    0 8px 24px rgba(35,40,75,.08);
+}
+
+/* =========================
+   GRÁFICO CIRCULAR
+========================= */
+
+.progress-ring{
+  --progress:0deg;
+  --progress-color:var(--red);
+
+  width:92px;
+  height:92px;
+
+  border-radius:50%;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    conic-gradient(
+      var(--progress-color) 0deg var(--progress),
+      #d8dae3 var(--progress) 360deg
+    );
+}
+
+/* linhas divisórias */
+
+.progress-ring::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  border-radius:50%;
+
+  background:
+    conic-gradient(
+      transparent 0deg 70deg,
+      white 70deg 72deg,
+
+      transparent 72deg 142deg,
+      white 142deg 144deg,
+
+      transparent 144deg 214deg,
+      white 214deg 216deg,
+
+      transparent 216deg 286deg,
+      white 286deg 288deg,
+
+      transparent 288deg 358deg,
+      white 358deg 360deg
+    );
+}
+
+.progress-center{
+  position:absolute;
+
+  width:61px;
+  height:61px;
+
+  border-radius:50%;
+  background:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:21px;
+  font-weight:900;
+
+  z-index:2;
+}
+
+.module-number{
+  color:#263cc4;
+  font-size:10px;
+  font-weight:900;
+}
+
+.module-title{
+  margin-top:6px;
+
+  font-size:17px;
+  font-weight:900;
+  line-height:1.25;
+}
+
+.module-lessons{
+  margin-top:7px;
+
+  color:#777b98;
+  font-size:12px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.module-button{
   border:0;
-  background:#f0eefb;
-  color:var(--p);
-  border-radius:9px;
-  padding:7px 10px;
+  border-radius:11px;
+
+  min-height:48px;
+  padding:0 18px;
+
+  color:white;
+
+  font-size:12px;
+  font-weight:900;
+
+  cursor:pointer;
+
+  transition:
+    transform .15s ease,
+    opacity .15s ease;
+}
+
+.module-button:hover{
+  transform:scale(1.015);
+}
+
+.module-button.start{
+  background:#aeb2c2;
+}
+
+.module-button.orange{
+  background:
+    linear-gradient(
+      90deg,
+      #ff941e,
+      #ff7115
+    );
+}
+
+.module-button.blue{
+  background:
+    linear-gradient(
+      90deg,
+      #20a5f3,
+      #2374ef
+    );
+}
+
+.module-button.green{
+  background:
+    linear-gradient(
+      90deg,
+      #12c793,
+      #0aab77
+    );
+}
+
+.arrow{
+  color:#2022bd;
+  font-size:29px;
   cursor:pointer;
 }
-.week,.month-grid{
+
+/* =========================
+   PARTE INFERIOR
+========================= */
+
+.bottom-grid{
+  margin-top:22px;
+
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:16px;
+}
+
+.panel{
+  background:white;
+  border-radius:17px;
+  padding:20px;
+
+  box-shadow:
+    0 5px 20px rgba(35,40,75,.045);
+}
+
+.panel h3{
+  margin:0;
+  color:#1d218c;
+  font-size:20px;
+}
+
+.panel-sub{
+  color:#747a9b;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* =========================
+   CALENDÁRIO
+========================= */
+
+.calendar-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-top:15px;
+}
+
+.calendar-head button{
+  width:36px;
+  height:36px;
+
+  border:1px solid #e0e3ee;
+  border-radius:9px;
+
+  background:#f8f9fd;
+  color:var(--purple);
+
+  font-size:20px;
+  cursor:pointer;
+}
+
+.calendar-month{
+  color:#2327a1;
+  font-weight:900;
+  text-transform:capitalize;
+}
+
+.week,
+.calendar-grid{
   display:grid;
   grid-template-columns:repeat(7,1fr);
-  gap:5px;
+  gap:6px;
 }
+
+.week{
+  margin-top:15px;
+}
+
 .week div{
   text-align:center;
   font-size:9px;
-  color:#8a8b9a;
+  color:#757b9b;
   font-weight:800;
-  padding-bottom:4px;
 }
+
 .day{
-  min-height:47px;
+  height:37px;
+
   border-radius:9px;
-  background:#f7f8fb;
-  padding:6px;
-  font-size:10px;
+  background:#f7f8fc;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:11px;
+
   position:relative;
 }
-.day b{display:block;font-size:11px}
-.day.past{opacity:.28}
-.day.other-month{opacity:.16}
+
+.day.past{
+  opacity:.3;
+}
+
+.day.other{
+  opacity:.18;
+}
+
 .day.today{
-  outline:3px solid var(--p);
-  background:#eeecfb;
+  color:white;
+  background:var(--purple);
   opacity:1;
-}
-.day.today:after{
-  content:"HOJE";
-  position:absolute;
-  left:4px;bottom:4px;
-  font-size:6px;
   font-weight:900;
-  color:var(--p);
 }
-.day.deadline-day{
-  background:#fff0c9;
-  border:2px solid var(--gold);
+
+.day.deadline{
+  color:#7c5900;
+  background:#fff0bd;
+  border:1px solid #f1ce5c;
   opacity:1;
-}
-.day.deadline-day:after{
-  content:"PRAZO";
-  position:absolute;
-  right:4px;bottom:4px;
-  font-size:6px;
   font-weight:900;
-  color:#9b6c00;
 }
+
 .legend{
+  margin-top:13px;
+
   display:flex;
-  gap:13px;
-  flex-wrap:wrap;
-  margin-top:11px;
+  gap:16px;
+
   font-size:9px;
-  color:var(--muted);
+  color:#6f7494;
 }
-.legend i{
+
+.dot{
   display:inline-block;
-  width:7px;height:7px;
+
+  width:9px;
+  height:9px;
+
   border-radius:50%;
-  margin-right:4px;
+  margin-right:5px;
 }
-.lg-today{background:var(--p)}
-.lg-dead{background:var(--gold)}
 
-/* JORNADA */
+.dot.today-dot{
+  background:var(--purple);
+}
 
-.actions{
+.dot.deadline-dot{
+  background:#ffd65a;
+}
+
+/* =========================
+   MINHA JORNADA
+========================= */
+
+.journey-grid{
+  margin-top:14px;
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.action{
-  background:#fff;
-  border:0;
-  width:100%;
-  border-radius:14px;
-  padding:18px 12px;
-  text-align:center;
-  font-weight:700;
-  font-size:13px;
-  color:var(--ink);
-  cursor:pointer;
-}
-.icon{font-size:24px;margin-bottom:8px}
-
-/* TELAS SIMPLES DO MENU */
-
-.panel{
-  display:none;
-  background:#fff;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 3px 14px #2520600b;
-  margin-top:24px;
-}
-.panel.show{display:block}
-.panel h2{margin-top:0}
-.progress-row{
-  padding:13px 0;
-  border-bottom:1px solid #eee;
-}
-.progress-row:last-child{border-bottom:0}
-.progress-row-top{
-  display:flex;
-  justify-content:space-between;
+  grid-template-columns:1fr 1fr;
   gap:10px;
-  font-size:12px;
+}
+
+.journey-button{
+  min-height:92px;
+
+  border:0;
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f7ff,
+      #eeeeff
+    );
+
+  color:#181b7d;
+
+  cursor:pointer;
+
+  font-weight:900;
+}
+
+.journey-button b{
+  display:block;
+  font-size:26px;
   margin-bottom:7px;
 }
 
-/* MENU */
+.journey-button small{
+  display:block;
+  margin-top:3px;
 
-nav{display:none}
+  color:#767b9d;
+  font-weight:400;
+}
 
-@media(max-width:700px){
-  header{padding:16px 16px 32px}
-  .brand{font-size:12px}
-  .wrap{padding:0 12px;margin-bottom:90px}
-  .journey{padding:15px}
-  .student-head{
-    grid-template-columns:1fr;
-    gap:13px;
-  }
-  .student h1{font-size:18px}
-  .course-name{font-size:15px}
-  .deadline-top{
-    min-width:0;
-    width:100%;
-    display:grid;
-    grid-template-columns:1fr auto;
-    column-gap:10px;
-    align-items:center;
-  }
-  .deadline-label{grid-column:1}
-  .deadline-days{
-    grid-column:2;
-    grid-row:1 / span 2;
-    font-size:21px;
-    text-align:right;
-  }
-  .deadline-period{
-    grid-column:1;
-    font-size:9px;
-  }
-  .module-card{
-    min-width:78%;
-    width:78%;
-  }
-  .module-name{min-height:52px}
-  .day{min-height:43px;padding:5px}
-  .actions{
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-  }
-  .action{padding:14px 6px;font-size:11px}
+/* =========================
+   MENU INFERIOR
+========================= */
 
-  nav{
-    position:fixed;
-    display:flex;
-    bottom:0;left:0;right:0;
-    background:#fff;
-    border-top:1px solid #e7e7ee;
-    padding:8px 4px calc(8px + env(safe-area-inset-bottom));
-    justify-content:space-around;
-    z-index:50;
+.bottom-nav{
+  display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:720px){
+
+  header{
+    padding:15px 16px;
   }
-  nav button{
-    border:0;
-    background:none;
-    color:#777;
-    padding:4px;
+
+  .brand strong{
+    font-size:16px;
+  }
+
+  .brand span{
     font-size:10px;
+  }
+
+  .avatar{
+    width:38px;
+    height:38px;
+  }
+
+  .user-text{
+    display:none;
+  }
+
+  .container{
+    width:calc(100% - 22px);
+    margin-top:11px;
+    margin-bottom:90px;
+  }
+
+  .course-summary{
+    grid-template-columns:1fr;
+    padding:17px;
+  }
+
+  .course-side{
+    padding:0 0 16px;
+  }
+
+  .course-icon{
+    width:50px;
+    height:50px;
+    min-width:50px;
+    font-size:23px;
+  }
+
+  .course-title{
+    font-size:18px;
+  }
+
+  .verse{
+    font-size:11px;
+  }
+
+  .deadline-side{
+    border-left:0;
+    border-top:1px solid #e3e4eb;
+
+    padding:15px 0 0;
+  }
+
+  .deadline-days{
+    font-size:22px;
+  }
+
+  .deadline-bar{
+    width:100%;
+  }
+
+  .section-title h2{
+    font-size:21px;
+  }
+
+  .section-title span{
+    display:none;
+  }
+
+  .module{
+    min-height:0;
+
+    padding:14px;
+
+    grid-template-columns:82px 1fr 20px;
+    gap:10px;
+  }
+
+  .progress-ring{
+    width:72px;
+    height:72px;
+  }
+
+  .progress-center{
+    width:47px;
+    height:47px;
+    font-size:16px;
+  }
+
+  .module-title{
+    font-size:13px;
+  }
+
+  .module-lessons{
+    font-size:10px;
+  }
+
+  .module-button{
+    grid-column:2 / 4;
+
+    width:100%;
+    min-height:37px;
+
+    font-size:10px;
+  }
+
+  .arrow{
+    grid-column:3;
+    grid-row:1;
+    align-self:center;
+    font-size:22px;
+  }
+
+  .bottom-grid{
+    grid-template-columns:1fr;
+  }
+
+  .bottom-nav{
+    position:fixed;
+    z-index:100;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    padding:
+      7px 2px
+      calc(7px + env(safe-area-inset-bottom));
+
+    background:white;
+    border-top:1px solid #e4e5eb;
+  }
+
+  .bottom-nav button{
+    border:0;
+    background:transparent;
+
+    color:#747b9c;
+
+    font-size:9px;
+
     cursor:pointer;
   }
-  nav button.active{color:var(--p)}
-  nav b{
+
+  .bottom-nav button b{
     display:block;
     font-size:19px;
     margin-bottom:3px;
   }
+
+  .bottom-nav button.active{
+    color:#2425bd;
+  }
+
 }
+
+/* =========================
+   PAINÉIS INTERNOS
+========================= */
+
+.internal-page{
+  display:none;
+}
+
+.internal-page.active{
+  display:block;
+}
+
+.back-title{
+  margin:10px 0 18px;
+}
+
+.progress-detail{
+  background:white;
+  padding:18px;
+  border-radius:16px;
+}
+
+.progress-item{
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+}
+
+.progress-item:last-child{
+  border-bottom:0;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.small-bar{
+  height:7px;
+  background:#e8e9ef;
+  border-radius:10px;
+  margin-top:8px;
+  overflow:hidden;
+}
+
+.small-bar span{
+  display:block;
+  height:100%;
+  background:var(--purple);
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="top">
-    <div class="brand">ESCOLA MISSIONÁRIA</div>
-    <div class="avatar">EL</div>
+
+  <div class="header-inner">
+
+    <div class="brand">
+      <strong>ESCOLA MISSIONÁRIA</strong>
+      <span>Deus Está Presente!</span>
+    </div>
+
+    <div class="user">
+
+      <div style="font-size:22px">♧</div>
+
+      <div class="avatar">
+        EL
+      </div>
+
+      <div class="user-text">
+        <strong>Olá, Éric</strong>
+        <span>Aluno</span>
+      </div>
+
+    </div>
+
   </div>
+
 </header>
 
-<main class="wrap">
 
-  <div id="homeContent">
+<main class="container">
 
-    <section class="journey" id="inicio">
+<!-- =========================
+     HOME
+========================= -->
 
-      <div class="student-head">
+<div id="homePage" class="internal-page active">
 
-        <div class="student">
-          <div class="small">Deus Está Presente!</div>
-          <h1>Olá, Éric 👋</h1>
+  <section class="course-summary">
 
-          <span class="course-label">CURSO ATUAL</span>
+    <div class="course-side">
 
-          <div class="course-name">
-            GRADUAÇÃO MISSIONÁRIA
-          </div>
-        </div>
-
-        <div class="deadline-top">
-          <div class="deadline-label">PRAZO DO CURSO</div>
-
-          <div class="deadline-days" id="daysText">
-            Calculando...
-          </div>
-
-          <div class="deadline-period">
-            21/09/2026 a 25/10/2026
-          </div>
-        </div>
-
+      <div class="course-icon">
+        📖
       </div>
 
-    </section>
+      <div>
 
-    <section class="section" id="modulos">
-
-      <div class="section-title">
-        <h2>Seus módulos</h2>
-        <span class="link">Deslize para ver todos ›</span>
-      </div>
-
-      <div class="modules-scroll">
-
-        <div class="module-card active" onclick="selecionarModulo(0)">
-          <div class="module-number">MÓDULO 1</div>
-          <div class="module-name">
-            Atuação Missionária na Comunicação 100% Jesus
-          </div>
-          <div class="module-progress-line">
-            <span>Progresso</span>
-            <strong class="module-percent">0%</strong>
-          </div>
-          <div class="bar"><i class="module-bar"></i></div>
+        <div class="label">
+          Curso atual
         </div>
 
-        <div class="module-card" onclick="selecionarModulo(1)">
-          <div class="module-number">MÓDULO 2</div>
-          <div class="module-name">
-            Cruzadas do Novo Mandamento de Jesus
-          </div>
-          <div class="module-progress-line">
-            <span>Progresso</span>
-            <strong class="module-percent">0%</strong>
-          </div>
-          <div class="bar"><i class="module-bar"></i></div>
+        <div class="course-title">
+          GRADUAÇÃO MISSIONÁRIA
         </div>
 
-        <div class="module-card" onclick="selecionarModulo(2)">
-          <div class="module-number">MÓDULO 3</div>
-          <div class="module-name">
-            Jesus, o Cristo Ecumênico, o Divino Estadista 2
-          </div>
-          <div class="module-progress-line">
-            <span>Progresso</span>
-            <strong class="module-percent">0%</strong>
-          </div>
-          <div class="bar"><i class="module-bar"></i></div>
-        </div>
-
-        <div class="module-card" onclick="selecionarModulo(3)">
-          <div class="module-number">MÓDULO 4</div>
-          <div class="module-name">
-            O Novo Mandamento de Jesus 2
-          </div>
-          <div class="module-progress-line">
-            <span>Progresso</span>
-            <strong class="module-percent">0%</strong>
-          </div>
-          <div class="bar"><i class="module-bar"></i></div>
-        </div>
-
-        <div class="module-card" onclick="selecionarModulo(4)">
-          <div class="module-number">MÓDULO 5</div>
-          <div class="module-name">
-            O que é Religião? 2
-          </div>
-          <div class="module-progress-line">
-            <span>Progresso</span>
-            <strong class="module-percent">0%</strong>
-          </div>
-          <div class="bar"><i class="module-bar"></i></div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <div class="continue">
-
-        <div class="continue-label" id="continueModule">
-          MÓDULO 1
-        </div>
-
-        <h2 id="continueTitle">
-          Atuação Missionária na Comunicação 100% Jesus
-        </h2>
-
-        <p id="continueLesson">
-          Este módulo ainda não foi iniciado.
+        <p class="verse">
+          “Ide por todo o mundo e pregai o Evangelho.”
         </p>
 
-        <div class="continue-info">
-          <span id="continueCount">0 de 5 aulas concluídas</span>
-          <strong id="continuePercent">0%</strong>
+        <div class="verse-ref">
+          Marcos 16:15
         </div>
 
-        <div class="continue-progress">
-          <i id="continueBar"></i>
+      </div>
+
+    </div>
+
+
+    <div class="deadline-side">
+
+      <div class="deadline-icon">
+        🗓
+      </div>
+
+      <div style="width:100%">
+
+        <div class="deadline-title">
+          PRAZO DO CURSO
         </div>
+
+        <div
+          class="deadline-days"
+          id="deadlineDays">
+          Calculando...
+        </div>
+
+        <div class="deadline-date">
+          21/09/2026 a 25/10/2026
+        </div>
+
+        <div class="deadline-bar">
+          <span id="deadlineProgress"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div
+    class="section-title"
+    id="modulesAnchor">
+
+    <h2>
+      Seus módulos
+    </h2>
+
+    <span>
+      Acompanhe sua jornada ›
+    </span>
+
+  </div>
+
+
+  <section
+    class="modules"
+    id="modulesList">
+  </section>
+
+
+  <div class="bottom-grid">
+
+    <!-- CALENDÁRIO -->
+
+    <section class="panel">
+
+      <h3>
+        Calendário mensal
+      </h3>
+
+      <div class="panel-sub">
+        Datas importantes do seu curso
+      </div>
+
+      <div class="calendar-head">
+
+        <button onclick="changeMonth(-1)">
+          ‹
+        </button>
+
+        <div
+          class="calendar-month"
+          id="calendarMonth">
+        </div>
+
+        <button onclick="changeMonth(1)">
+          ›
+        </button>
+
+      </div>
+
+      <div class="week">
+
+        <div>DOM</div>
+        <div>SEG</div>
+        <div>TER</div>
+        <div>QUA</div>
+        <div>QUI</div>
+        <div>SEX</div>
+        <div>SÁB</div>
+
+      </div>
+
+      <div
+        class="calendar-grid"
+        id="calendarGrid">
+      </div>
+
+      <div class="legend">
+
+        <span>
+          <i class="dot today-dot"></i>
+          Hoje
+        </span>
+
+        <span>
+          <i class="dot deadline-dot"></i>
+          Prazo final do curso
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- JORNADA -->
+
+    <section class="panel">
+
+      <h3>
+        Minha jornada
+      </h3>
+
+      <div class="panel-sub">
+        Ferramentas para o seu estudo
+      </div>
+
+      <div class="journey-grid">
 
         <button
-          class="primary"
-          id="studyButton"
-          onclick="abrirModulo()">
-          ▶ Iniciar módulo
+          class="journey-button"
+          onclick="openSection('evaluationPage')">
+
+          <b>▣</b>
+          Avaliações
+
+          <small>
+            1 pendente
+          </small>
+
         </button>
 
-      </div>
 
-    </section>
+        <button
+          class="journey-button"
+          onclick="openSection('libraryPage')">
 
-    <section class="section" id="calendario">
+          <b>▤</b>
+          Biblioteca
 
-      <div class="section-title">
-        <h2>Calendário mensal</h2>
-        <span class="link">Datas importantes</span>
-      </div>
+          <small>
+            Materiais
+          </small>
 
-      <div class="month-card">
-
-        <div class="month-head">
-          <button class="month-nav" onclick="mudarMes(-1)">‹</button>
-          <h3 id="monthTitle"></h3>
-          <button class="month-nav" onclick="mudarMes(1)">›</button>
-        </div>
-
-        <div class="week">
-          <div>DOM</div><div>SEG</div><div>TER</div>
-          <div>QUA</div><div>QUI</div><div>SEX</div><div>SÁB</div>
-        </div>
-
-        <div class="month-grid" id="monthGrid"></div>
-
-        <div class="legend">
-          <span><i class="lg-today"></i>Hoje</span>
-          <span><i class="lg-dead"></i>Prazo final do curso</span>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <div class="section-title">
-        <h2>Minha jornada</h2>
-      </div>
-
-      <div class="actions">
-
-        <button class="action" onclick="mostrarPainel('avaliacoes')">
-          <div class="icon">📝</div>
-          Avaliações<br>
-          <span class="small">1 pendente</span>
         </button>
 
-        <button class="action" onclick="mostrarPainel('biblioteca')">
-          <div class="icon">📚</div>
-          Biblioteca<br>
-          <span class="small">Materiais</span>
+
+        <button
+          class="journey-button"
+          onclick="openProgress()">
+
+          <b>▥</b>
+          Progresso
+
+          <small>
+            Acompanhar
+          </small>
+
         </button>
 
-        <button class="action" onclick="mostrarPainel('progresso')">
-          <div class="icon">🏆</div>
-          Progresso<br>
-          <span class="small">Por módulos</span>
+
+        <button
+          class="journey-button"
+          onclick="openSection('profilePage')">
+
+          <b>●</b>
+          Perfil
+
+          <small>
+            Meus dados
+          </small>
+
         </button>
 
       </div>
@@ -661,445 +1157,1116 @@ nav{display:none}
 
   </div>
 
-  <section class="panel" id="panelProgresso">
-    <h2>Meu progresso</h2>
-    <div class="small" style="margin-bottom:15px">
-      Graduação Missionária
-    </div>
-    <div id="progressList"></div>
-  </section>
+</div>
 
-  <section class="panel" id="panelBiblioteca">
-    <h2>Biblioteca</h2>
-    <p class="small">
-      Aqui ficarão reunidos os livros, PDFs, apostilas e materiais
-      utilizados nas aulas.
-    </p>
-    <div class="action" style="margin-top:14px">
-      <div class="icon">📖</div>
+
+<!-- =========================
+     PROGRESSO
+========================= -->
+
+<div
+  id="progressPage"
+  class="internal-page">
+
+  <h2 class="back-title">
+    Meu progresso
+  </h2>
+
+  <div
+    class="progress-detail"
+    id="progressDetail">
+  </div>
+
+</div>
+
+
+<!-- =========================
+     BIBLIOTECA
+========================= -->
+
+<div
+  id="libraryPage"
+  class="internal-page">
+
+  <h2 class="back-title">
+    Biblioteca
+  </h2>
+
+  <div class="panel">
+
+    <h3>
       Materiais didáticos
-      <br>
-      <span class="small">Em breve</span>
-    </div>
-  </section>
+    </h3>
 
-  <section class="panel" id="panelPerfil">
-    <h2>Perfil</h2>
-    <div class="action" style="text-align:left">
-      <b>Éric</b><br>
-      <span class="small">Aluno</span><br><br>
-      <b>Curso atual</b><br>
-      <span class="small">Graduação Missionária</span>
-    </div>
-  </section>
-
-  <section class="panel" id="panelAvaliacoes">
-    <h2>Avaliações</h2>
-    <p class="small">
-      As provas e atividades disponíveis aparecerão nesta área.
+    <p class="panel-sub">
+      Aqui ficarão reunidos livros,
+      PDFs, apostilas e outros materiais
+      utilizados durante as aulas.
     </p>
-  </section>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     PERFIL
+========================= -->
+
+<div
+  id="profilePage"
+  class="internal-page">
+
+  <h2 class="back-title">
+    Perfil
+  </h2>
+
+  <div class="panel">
+
+    <h3>
+      Éric
+    </h3>
+
+    <p class="panel-sub">
+      Aluno
+    </p>
+
+    <br>
+
+    <strong>
+      Curso atual
+    </strong>
+
+    <p>
+      Graduação Missionária
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     AVALIAÇÕES
+========================= -->
+
+<div
+  id="evaluationPage"
+  class="internal-page">
+
+  <h2 class="back-title">
+    Avaliações
+  </h2>
+
+  <div class="panel">
+
+    <h3>
+      Avaliações do curso
+    </h3>
+
+    <p class="panel-sub">
+      As provas e atividades disponíveis
+      aparecerão nesta área.
+    </p>
+
+  </div>
+
+</div>
 
 </main>
 
-<nav>
-  <button class="active" id="navInicio" onclick="irInicio()">
-    <b>⌂</b>Início
+
+<!-- =========================
+     MENU MOBILE
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    id="navHome"
+    class="active"
+    onclick="goHome()">
+
+    <b>⌂</b>
+    Início
+
   </button>
 
-  <button id="navModulos" onclick="irModulos()">
-    <b>▣</b>Módulos
+
+  <button
+    id="navModules"
+    onclick="goModules()">
+
+    <b>▦</b>
+    Módulos
+
   </button>
 
-  <button id="navProgresso" onclick="mostrarPainel('progresso')">
-    <b>✓</b>Progresso
+
+  <button
+    id="navProgress"
+    onclick="openProgress()">
+
+    <b>▥</b>
+    Progresso
+
   </button>
 
-  <button id="navBiblioteca" onclick="mostrarPainel('biblioteca')">
-    <b>▤</b>Biblioteca
+
+  <button
+    id="navLibrary"
+    onclick="openSection('libraryPage')">
+
+    <b>▤</b>
+    Biblioteca
+
   </button>
 
-  <button id="navPerfil" onclick="mostrarPainel('perfil')">
-    <b>○</b>Perfil
+
+  <button
+    id="navProfile"
+    onclick="openSection('profilePage')">
+
+    <b>●</b>
+    Perfil
+
   </button>
+
 </nav>
+
 
 <script>
 
-const modulos = [
-  {numero:1,nome:"Atuação Missionária na Comunicação 100% Jesus"},
-  {numero:2,nome:"Cruzadas do Novo Mandamento de Jesus"},
-  {numero:3,nome:"Jesus, o Cristo Ecumênico, o Divino Estadista 2"},
-  {numero:4,nome:"O Novo Mandamento de Jesus 2"},
-  {numero:5,nome:"O que é Religião? 2"}
+/* =========================
+   DADOS DOS MÓDULOS
+========================= */
+
+const modules = [
+
+  {
+    number:1,
+    title:
+      "Atuação Missionária na Comunicação 100% Jesus"
+  },
+
+  {
+    number:2,
+    title:
+      "Cruzadas do Novo Mandamento de Jesus"
+  },
+
+  {
+    number:3,
+    title:
+      "Jesus, o Cristo Ecumênico, o Divino Estadista 2"
+  },
+
+  {
+    number:4,
+    title:
+      "O Novo Mandamento de Jesus 2"
+  },
+
+  {
+    number:5,
+    title:
+      "O que é Religião? 2"
+  }
+
 ];
 
-let moduloSelecionado = 0;
 
-function chaveProgresso(i){
-  return "escolaMissionaria_modulo_" + (i+1) + "_concluidas";
-}
+/* =========================
+   LOCAL STORAGE
+========================= */
 
-function chaveIniciado(i){
-  return "escolaMissionaria_modulo_" + (i+1) + "_iniciado";
-}
+function progressKey(index){
 
-function aulasConcluidas(i){
-  try{
-    const valor=localStorage.getItem(chaveProgresso(i));
-    if(!valor)return [];
-    const lista=JSON.parse(valor);
-    return Array.isArray(lista)?lista:[];
-  }catch(e){
-    return [];
-  }
-}
-
-function progressoModulo(i){
-  return Math.min(100,aulasConcluidas(i).length*20);
-}
-
-function moduloIniciado(i){
-  return localStorage.getItem(chaveIniciado(i))==="1" ||
-         aulasConcluidas(i).length>0;
-}
-
-function atualizarCards(){
-
-  const cards=document.querySelectorAll(".module-card");
-
-  cards.forEach(function(card,i){
-
-    const p=progressoModulo(i);
-
-    card.querySelector(".module-percent").textContent=p+"%";
-    card.querySelector(".module-bar").style.width=p+"%";
-
-    card.classList.toggle("active",i===moduloSelecionado);
-  });
-
-}
-
-function selecionarModulo(i){
-
-  moduloSelecionado=i;
-
-  localStorage.setItem(
-    "escolaMissionaria_moduloAtual",
-    i
+  return (
+    "escolaMissionaria_modulo_" +
+    (index + 1) +
+    "_concluidas"
   );
 
-  atualizarCards();
-  atualizarContinuar();
 }
 
-function proximaAula(i){
 
-  const concluidas=aulasConcluidas(i);
+function startedKey(index){
 
-  for(let aula=0;aula<5;aula++){
-    if(!concluidas.includes(aula)){
-      return aula;
+  return (
+    "escolaMissionaria_modulo_" +
+    (index + 1) +
+    "_iniciado"
+  );
+
+}
+
+
+function getCompleted(index){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        progressKey(index)
+      );
+
+    if(!saved){
+      return [];
     }
+
+    const data =
+      JSON.parse(saved);
+
+    return Array.isArray(data)
+      ? data
+      : [];
+
+  }
+  catch(e){
+
+    return [];
+
   }
 
-  return 0;
 }
 
-function atualizarContinuar(){
 
-  const m=modulos[moduloSelecionado];
-  const concluidas=aulasConcluidas(moduloSelecionado);
-  const p=progressoModulo(moduloSelecionado);
-  const iniciado=moduloIniciado(moduloSelecionado);
+function isStarted(index){
 
-  document.getElementById("continueModule").textContent=
-    "MÓDULO "+m.numero;
+  return (
+    localStorage.getItem(
+      startedKey(index)
+    ) === "1"
+    ||
+    getCompleted(index).length > 0
+  );
 
-  document.getElementById("continueTitle").textContent=
-    m.nome;
+}
 
-  document.getElementById("continueCount").textContent=
-    concluidas.length+" de 5 aulas concluídas";
 
-  document.getElementById("continuePercent").textContent=
-    p+"%";
+function getProgress(index){
 
-  document.getElementById("continueBar").style.width=
-    p+"%";
+  const total =
+    getCompleted(index).length;
 
-  const botao=document.getElementById("studyButton");
+  return Math.min(
+    100,
+    total * 20
+  );
 
-  if(p>=100){
+}
 
-    document.getElementById("continueLesson").textContent=
-      "Módulo concluído.";
 
-    botao.textContent="↻ Rever módulo";
+/* =========================
+   COR DO PROGRESSO
+========================= */
 
-  }else if(!iniciado){
+function progressColor(percent){
 
-    document.getElementById("continueLesson").textContent=
-      "Este módulo ainda não foi iniciado.";
+  if(percent <= 20){
 
-    botao.textContent="▶ Iniciar módulo";
+    return "#ef3d45";
 
-  }else{
-
-    const aula=proximaAula(moduloSelecionado)+1;
-
-    document.getElementById("continueLesson").textContent=
-      "Continue pela Aula "+aula;
-
-    botao.textContent="▶ Continuar módulo";
   }
+
+  if(percent <= 50){
+
+    return "#ff8a17";
+
+  }
+
+  if(percent <= 70){
+
+    return "#1687ee";
+
+  }
+
+  if(percent < 100){
+
+    return "#16b991";
+
+  }
+
+  return "#12b981";
+
 }
 
-function abrirModulo(){
+
+/* =========================
+   BOTÃO
+========================= */
+
+function buttonData(index){
+
+  const progress =
+    getProgress(index);
+
+  const started =
+    isStarted(index);
+
+  if(progress >= 100){
+
+    return {
+      text:"✓ REVER MÓDULO",
+      className:"green"
+    };
+
+  }
+
+  if(!started){
+
+    return {
+      text:"▶ INICIAR MÓDULO",
+      className:"start"
+    };
+
+  }
+
+  if(progress <= 50){
+
+    return {
+      text:"▶ CONTINUAR MÓDULO",
+      className:"orange"
+    };
+
+  }
+
+  return {
+    text:"▶ CONTINUAR MÓDULO",
+    className:"blue"
+  };
+
+}
+
+
+/* =========================
+   CRIAR MÓDULOS
+========================= */
+
+function renderModules(){
+
+  const container =
+    document.getElementById(
+      "modulesList"
+    );
+
+  container.innerHTML = "";
+
+
+  modules.forEach(
+    function(module,index){
+
+      const completed =
+        getCompleted(index);
+
+      const progress =
+        getProgress(index);
+
+      const button =
+        buttonData(index);
+
+      const color =
+        progressColor(progress);
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+      card.className =
+        "module";
+
+
+      card.innerHTML = `
+
+        <div>
+
+          <div
+            class="progress-ring"
+            style="
+              --progress:${progress * 3.6}deg;
+              --progress-color:${color};
+            ">
+
+            <div class="progress-center">
+              ${progress}%
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="module-number">
+            MÓDULO ${module.number}
+          </div>
+
+          <div class="module-title">
+            ${module.title}
+          </div>
+
+          <div class="module-lessons">
+            ${completed.length}
+            de 5 aulas concluídas
+          </div>
+
+        </div>
+
+
+        <button
+          class="
+            module-button
+            ${button.className}
+          "
+          onclick="
+            openModule(${index})
+          ">
+
+          ${button.text}
+
+        </button>
+
+
+        <div
+          class="arrow"
+          onclick="
+            openModule(${index})
+          ">
+          ›
+        </div>
+
+      `;
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =========================
+   ABRIR MÓDULO
+========================= */
+
+function openModule(index){
 
   localStorage.setItem(
-    chaveIniciado(moduloSelecionado),
+    startedKey(index),
     "1"
   );
 
   localStorage.setItem(
     "escolaMissionaria_moduloAtual",
-    moduloSelecionado
+    index
   );
 
-  window.location.href=
-    "curso.html?modulo="+(moduloSelecionado+1);
+  window.location.href =
+    "curso.html?modulo=" +
+    (index + 1);
+
 }
 
-/* PRAZO GERAL DO CURSO */
 
-const dataFimCurso=new Date(2026,9,25,23,59,59);
+/* =========================
+   PRAZO
+========================= */
 
-function atualizarPrazo(){
+const courseStart =
+  new Date(
+    2026,
+    8,
+    21
+  );
 
-  const hoje=new Date();
-  hoje.setHours(0,0,0,0);
+const courseEnd =
+  new Date(
+    2026,
+    9,
+    25
+  );
 
-  const fim=new Date(dataFimCurso);
-  fim.setHours(0,0,0,0);
 
-  const dias=Math.ceil((fim-hoje)/86400000);
-  const el=document.getElementById("daysText");
+function updateDeadline(){
 
-  if(dias>1) el.textContent=dias+" dias restantes";
-  else if(dias===1) el.textContent="1 dia restante";
-  else if(dias===0) el.textContent="Último dia";
-  else el.textContent="Prazo encerrado";
+  const today =
+    new Date();
+
+  today.setHours(
+    0,0,0,0
+  );
+
+  const start =
+    new Date(
+      courseStart
+    );
+
+  const end =
+    new Date(
+      courseEnd
+    );
+
+  start.setHours(
+    0,0,0,0
+  );
+
+  end.setHours(
+    0,0,0,0
+  );
+
+
+  const remaining =
+    Math.ceil(
+      (end - today)
+      /
+      86400000
+    );
+
+
+  const text =
+    document.getElementById(
+      "deadlineDays"
+    );
+
+
+  if(remaining > 1){
+
+    text.textContent =
+      remaining +
+      " dias restantes";
+
+  }
+
+  else if(remaining === 1){
+
+    text.textContent =
+      "1 dia restante";
+
+  }
+
+  else if(remaining === 0){
+
+    text.textContent =
+      "Último dia";
+
+  }
+
+  else{
+
+    text.textContent =
+      "Prazo encerrado";
+
+  }
+
+
+  const total =
+    end - start;
+
+  const elapsed =
+    today - start;
+
+
+  let percent =
+    (elapsed / total) * 100;
+
+
+  percent =
+    Math.max(
+      0,
+      Math.min(
+        100,
+        percent
+      )
+    );
+
+
+  document
+    .getElementById(
+      "deadlineProgress"
+    )
+    .style.width =
+      percent + "%";
+
 }
 
-/* CALENDÁRIO */
 
-const hojeReal=new Date();
-hojeReal.setHours(0,0,0,0);
+/* =========================
+   CALENDÁRIO
+========================= */
 
-let mesVisual=new Date(
-  hojeReal.getFullYear(),
-  hojeReal.getMonth(),
-  1
+const realToday =
+  new Date();
+
+realToday.setHours(
+  0,0,0,0
 );
 
-function mesmaData(a,b){
-  return a.getFullYear()===b.getFullYear() &&
-         a.getMonth()===b.getMonth() &&
-         a.getDate()===b.getDate();
-}
 
-function renderizarCalendario(){
-
-  const grid=document.getElementById("monthGrid");
-  grid.innerHTML="";
-
-  const ano=mesVisual.getFullYear();
-  const mes=mesVisual.getMonth();
-
-  document.getElementById("monthTitle").textContent=
-    mesVisual.toLocaleDateString(
-      "pt-BR",
-      {month:"long",year:"numeric"}
-    );
-
-  const primeiro=new Date(ano,mes,1);
-
-  const inicio=new Date(
-    ano,
-    mes,
-    1-primeiro.getDay()
-  );
-
-  for(let i=0;i<42;i++){
-
-    const data=new Date(
-      inicio.getFullYear(),
-      inicio.getMonth(),
-      inicio.getDate()+i
-    );
-
-    const div=document.createElement("div");
-    div.className="day";
-
-    if(data.getMonth()!==mes)
-      div.classList.add("other-month");
-
-    if(data<hojeReal)
-      div.classList.add("past");
-
-    if(mesmaData(data,hojeReal))
-      div.classList.add("today");
-
-    if(mesmaData(data,dataFimCurso))
-      div.classList.add("deadline-day");
-
-    const numero=document.createElement("b");
-    numero.textContent=data.getDate();
-
-    div.appendChild(numero);
-    grid.appendChild(div);
-  }
-}
-
-function mudarMes(valor){
-  mesVisual=new Date(
-    mesVisual.getFullYear(),
-    mesVisual.getMonth()+valor,
+let calendarDate =
+  new Date(
+    realToday.getFullYear(),
+    realToday.getMonth(),
     1
   );
-  renderizarCalendario();
-}
 
-/* MENU INFERIOR */
 
-function limparPaineis(){
+function sameDate(a,b){
 
-  document.querySelectorAll(".panel")
-    .forEach(p=>p.classList.remove("show"));
-
-  document.getElementById("homeContent").style.display="none";
-
-  document.querySelectorAll("nav button")
-    .forEach(b=>b.classList.remove("active"));
-}
-
-function irInicio(){
-
-  limparPaineis();
-
-  document.getElementById("homeContent").style.display="block";
-  document.getElementById("navInicio").classList.add("active");
-
-  atualizarCards();
-  atualizarContinuar();
-
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function irModulos(){
-
-  limparPaineis();
-
-  document.getElementById("homeContent").style.display="block";
-  document.getElementById("navModulos").classList.add("active");
-
-  setTimeout(function(){
-    document.getElementById("modulos")
-      .scrollIntoView({behavior:"smooth",block:"start"});
-  },50);
-}
-
-function mostrarPainel(nome){
-
-  limparPaineis();
-
-  if(nome==="progresso"){
-
-    montarProgresso();
-
-    document.getElementById("panelProgresso")
-      .classList.add("show");
-
-    document.getElementById("navProgresso")
-      .classList.add("active");
-
-  }
-
-  if(nome==="biblioteca"){
-
-    document.getElementById("panelBiblioteca")
-      .classList.add("show");
-
-    document.getElementById("navBiblioteca")
-      .classList.add("active");
-
-  }
-
-  if(nome==="perfil"){
-
-    document.getElementById("panelPerfil")
-      .classList.add("show");
-
-    document.getElementById("navPerfil")
-      .classList.add("active");
-
-  }
-
-  if(nome==="avaliacoes"){
-
-    document.getElementById("panelAvaliacoes")
-      .classList.add("show");
-  }
-
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function montarProgresso(){
-
-  const lista=document.getElementById("progressList");
-  lista.innerHTML="";
-
-  modulos.forEach(function(m,i){
-
-    const p=progressoModulo(i);
-    const concluidas=aulasConcluidas(i).length;
-
-    const linha=document.createElement("div");
-    linha.className="progress-row";
-
-    linha.innerHTML=
-      '<div class="progress-row-top">'+
-      '<div><b>Módulo '+m.numero+'</b><br>'+
-      '<span class="small">'+m.nome+'</span></div>'+
-      '<strong>'+p+'%</strong>'+
-      '</div>'+
-      '<div class="bar"><i style="width:'+p+'%"></i></div>'+
-      '<div class="small" style="margin-top:6px">'+
-      concluidas+' de 5 aulas concluídas</div>';
-
-    lista.appendChild(linha);
-  });
-}
-
-/* INICIALIZAÇÃO */
-
-(function(){
-
-  const salvo=parseInt(
-    localStorage.getItem("escolaMissionaria_moduloAtual"),
-    10
+  return (
+    a.getFullYear()
+      === b.getFullYear()
+    &&
+    a.getMonth()
+      === b.getMonth()
+    &&
+    a.getDate()
+      === b.getDate()
   );
 
-  if(!isNaN(salvo) && salvo>=0 && salvo<5)
-    moduloSelecionado=salvo;
+}
 
-  atualizarCards();
-  atualizarContinuar();
-  atualizarPrazo();
-  renderizarCalendario();
 
-})();
+function renderCalendar(){
+
+  const grid =
+    document.getElementById(
+      "calendarGrid"
+    );
+
+  grid.innerHTML = "";
+
+
+  const year =
+    calendarDate.getFullYear();
+
+  const month =
+    calendarDate.getMonth();
+
+
+  document
+    .getElementById(
+      "calendarMonth"
+    )
+    .textContent =
+      calendarDate
+        .toLocaleDateString(
+          "pt-BR",
+          {
+            month:"long",
+            year:"numeric"
+          }
+        );
+
+
+  const firstDay =
+    new Date(
+      year,
+      month,
+      1
+    );
+
+
+  const start =
+    new Date(
+      year,
+      month,
+      1 - firstDay.getDay()
+    );
+
+
+  for(
+    let i=0;
+    i<42;
+    i++
+  ){
+
+    const date =
+      new Date(
+        start.getFullYear(),
+        start.getMonth(),
+        start.getDate()+i
+      );
+
+
+    const day =
+      document.createElement(
+        "div"
+      );
+
+    day.className =
+      "day";
+
+
+    if(
+      date.getMonth()
+      !== month
+    ){
+
+      day.classList.add(
+        "other"
+      );
+
+    }
+
+
+    if(
+      date < realToday
+    ){
+
+      day.classList.add(
+        "past"
+      );
+
+    }
+
+
+    if(
+      sameDate(
+        date,
+        realToday
+      )
+    ){
+
+      day.classList.add(
+        "today"
+      );
+
+    }
+
+
+    if(
+      sameDate(
+        date,
+        courseEnd
+      )
+    ){
+
+      day.classList.add(
+        "deadline"
+      );
+
+    }
+
+
+    day.textContent =
+      date.getDate();
+
+
+    grid.appendChild(
+      day
+    );
+
+  }
+
+}
+
+
+function changeMonth(value){
+
+  calendarDate =
+    new Date(
+      calendarDate.getFullYear(),
+      calendarDate.getMonth()
+        + value,
+      1
+    );
+
+  renderCalendar();
+
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+function hidePages(){
+
+  document
+    .querySelectorAll(
+      ".internal-page"
+    )
+    .forEach(
+      function(page){
+
+        page.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      ".bottom-nav button"
+    )
+    .forEach(
+      function(button){
+
+        button.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+}
+
+
+function goHome(){
+
+  hidePages();
+
+  document
+    .getElementById(
+      "homePage"
+    )
+    .classList.add(
+      "active"
+    );
+
+  document
+    .getElementById(
+      "navHome"
+    )
+    .classList.add(
+      "active"
+    );
+
+  renderModules();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function goModules(){
+
+  goHome();
+
+  document
+    .getElementById(
+      "navHome"
+    )
+    .classList.remove(
+      "active"
+    );
+
+  document
+    .getElementById(
+      "navModules"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  setTimeout(
+    function(){
+
+      document
+        .getElementById(
+          "modulesAnchor"
+        )
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+
+    },
+    50
+  );
+
+}
+
+
+function openSection(id){
+
+  hidePages();
+
+  document
+    .getElementById(id)
+    .classList.add(
+      "active"
+    );
+
+
+  if(id === "libraryPage"){
+
+    document
+      .getElementById(
+        "navLibrary"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if(id === "profilePage"){
+
+    document
+      .getElementById(
+        "navProfile"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   PROGRESSO DETALHADO
+========================= */
+
+function openProgress(){
+
+  hidePages();
+
+
+  const detail =
+    document.getElementById(
+      "progressDetail"
+    );
+
+  detail.innerHTML = "";
+
+
+  modules.forEach(
+    function(module,index){
+
+      const progress =
+        getProgress(index);
+
+      const completed =
+        getCompleted(index).length;
+
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+      item.className =
+        "progress-item";
+
+
+      item.innerHTML = `
+
+        <div class="progress-top">
+
+          <div>
+
+            <strong>
+              Módulo ${module.number}
+            </strong>
+
+            <div
+              style="
+                font-size:12px;
+                color:#777;
+                margin-top:3px
+              ">
+
+              ${module.title}
+
+            </div>
+
+          </div>
+
+          <strong>
+            ${progress}%
+          </strong>
+
+        </div>
+
+
+        <div class="small-bar">
+
+          <span
+            style="
+              width:${progress}%;
+              background:${progressColor(progress)}
+            ">
+          </span>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:6px;
+            font-size:10px;
+            color:#777
+          ">
+
+          ${completed}
+          de 5 aulas concluídas
+
+        </div>
+
+      `;
+
+
+      detail.appendChild(
+        item
+      );
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      "progressPage"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  document
+    .getElementById(
+      "navProgress"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+renderModules();
+
+updateDeadline();
+
+renderCalendar();
 
 </script>
 
